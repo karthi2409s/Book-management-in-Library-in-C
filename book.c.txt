@@ -1,0 +1,93 @@
+#include <stdio.h>
+struct book
+    {
+    int bno,status;
+    char bname[20];
+    }
+b[100];
+int cnt = 0;
+void add()
+{
+    printf("Enter the Book Name: ");
+    scanf("%s",b[cnt].bname);
+    printf("Enter the Book Number: ");
+    scanf("%d",&b[cnt].bno);
+    b[cnt].status = 1;
+    cnt++;
+}
+void viewBooks()
+    {
+    int i;
+    for(i=0;i<cnt;i++)
+        {
+        printf("Book Name :%s - Book Number: %d - Book Status %s\n",b[i].bname,b[i].bno,(b[i].status?"available":"not Available"));
+        }
+    }
+void issuedBook()
+      {
+        int i;
+        for(i=0;i<cnt;i++)
+        {
+        printf("Book Name :%s - Book Number: %s\n",b[i].bname,b[i].bno?"issued":"not issuede");
+        }
+      }
+void viewissuedBook()
+{
+      int i;
+      for(i=0;i<cnt;i++)
+      {
+            if(b[i].status == 0)
+            printf("Book Name :%s - Book Number: %d - Book Status %s\n",b[i].bname,b[i].bno,(b[i].status?"available":"not Available"));
+      }
+}
+int main()
+{
+   int a,a1;
+   while(1)
+   {
+       printf("\n 1.add view books \n 2.Issue books \n 3.view issued books \n 4.return books \n 5.Exit");
+       scanf("%d",&a);
+       if(a==5)
+            break;
+        else if(a==1)
+        {
+           while(1)
+           {
+                printf("\n1.add books \n2.viewbooks \n3.Exit\n");
+                scanf("%d",&a1);
+                if(a1==3)
+                    break;
+                else if(a1==2)
+                {
+                    viewBooks();    
+                }
+                else if(a1==1)
+                {
+                    add();
+                }
+                else
+                {
+                    printf("invalid option\n");
+                }
+           }
+        }
+        else if(a==2)
+        {
+             continue;
+        }
+        else if(a==3)
+        {
+            continue;
+        }
+        else if(a==4)
+        {
+            continue;
+        }
+        else
+        {
+            printf("invalid option");
+        }
+   }
+}
+
+
